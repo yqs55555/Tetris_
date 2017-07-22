@@ -11,11 +11,13 @@
 #define IDD_DIALOG_ACHIEVE              130
 #define IDC_BUTTON1                     1001
 #define IDC_BUTTON_BEGINGAME            1001
+#define IDC_BUTTON_ACHIEVERETURN        1001
 #define IDC_BUTTON2                     1002
 #define IDC_BUTTON_HELP                 1002
 #define IDC_BUTTON3                     1003
 #define IDC_BUTTON_ACHIEVE              1003
 #define IDC_BUTTON_EXIT                 1005
+#define IDC_STATIC_RANK                 1006
 
 // Next default values for new objects
 // 
@@ -23,7 +25,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        132
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1006
+#define _APS_NEXT_CONTROL_VALUE         1007
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
