@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include "Tetris.h"
 #include "TetrisDlg.h"
+#include "AchieveDlg.h"
 #include "afxdialogex.h"
 
 #ifdef _DEBUG
@@ -183,6 +184,7 @@ void CTetrisDlg::OnBnClickedButtonExit()
 
 void CTetrisDlg::OnBnClickedButtonAchieve()
 {
-	
+	CAchieveDlg achieveDlg;
+	achieveDlg.DoModal();
 	// TODO: 在此添加控件通知处理程序代码
 }
