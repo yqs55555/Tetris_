@@ -32,10 +32,9 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnBnClickedButton3();
-	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedButtonBegingame();
 	afx_msg void OnBnClickedButtonHelp();
 	afx_msg void OnBnClickedButtonExit();
 	afx_msg void OnBnClickedButtonAchieve();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 };

@@ -73,6 +73,7 @@ BOOL CTetrisApp::InitInstance()
 	CTetrisDlg dlg;
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
+
 	if (nResponse == IDOK)
 	{
 		// TODO: 在此放置处理何时用
@@ -101,6 +102,7 @@ BOOL CTetrisApp::InitInstance()
 
 	// 由于对话框已关闭，所以将返回 FALSE 以便退出应用程序，
 	//  而不是启动应用程序的消息泵。
+
 	return FALSE;
 }
 

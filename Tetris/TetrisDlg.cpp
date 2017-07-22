@@ -11,7 +11,7 @@
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
-
+#define KEY_DOWN(VK_NONAME) ((GetAsyncKeyState(VK_NONAME) & 0x8000) ? 1:0)
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 
@@ -71,9 +71,13 @@ BEGIN_MESSAGE_MAP(CTetrisDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_ACHIEVE, &CTetrisDlg::OnBnClickedButtonAchieve)
 END_MESSAGE_MAP()
 
-
 // CTetrisDlg 消息处理程序
 
+void OnTimer()
+{
+	if(KEY_DOWN('H'))
+		MessageBoxA(nullptr, "这里是帮助", "Help", MB_OK);
+}
 BOOL CTetrisDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
@@ -175,7 +179,6 @@ void CTetrisDlg::OnBnClickedButtonHelp()
 
 void CTetrisDlg::OnBnClickedButtonExit()
 {
-	
 	if (MessageBoxA(nullptr, "确定退出？", "退出", MB_OKCANCEL) == IDOK)
 		exit(0);
 	// TODO: 在此添加控件通知处理程序代码
@@ -187,4 +190,13 @@ void CTetrisDlg::OnBnClickedButtonAchieve()
 	CAchieveDlg achieveDlg;
 	achieveDlg.DoModal();
 	// TODO: 在此添加控件通知处理程序代码
+}
+
+BOOL CTetrisDlg::PreTranslateMessage(MSG* pMsg)
+{
+	// TODO: 在此添加专用代码和/或调用基类
+	if (pMsg->message == WM_KEYDOWN)
+		if(KEY_DOWN('H'))
+			MessageBoxA(nullptr, "这里是帮助", "Help", MB_OK);
+	return false;
 }
