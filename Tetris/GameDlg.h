@@ -22,5 +22,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedButtonGamereturn();
-
+	BOOL PreTranslateMessage(MSG * pMsg);
+	void ShowMain();
+	afx_msg void OnCancel();
 };

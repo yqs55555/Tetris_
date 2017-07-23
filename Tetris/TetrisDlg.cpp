@@ -169,7 +169,7 @@ void CTetrisDlg::OnBnClickedButtonBegingame()
 
 void CTetrisDlg::OnBnClickedButtonHelp()
 {
-	MessageBoxA(nullptr, "这里是帮助","Help", MB_OK);
+	Help();
 	// TODO: 在此添加控件通知处理程序代码
 }
 
@@ -193,7 +193,13 @@ BOOL CTetrisDlg::PreTranslateMessage(MSG* pMsg)
 {
 	// TODO: 在此添加专用代码和/或调用基类
 	if (pMsg->message == WM_KEYDOWN)
-		if(KEY_DOWN('H'))
-			MessageBoxA(nullptr, "这里是帮助", "Help", MB_OK);
+		if (KEY_DOWN('H'))
+			Help();
 	return false;
+}
+void CTetrisDlg::Help()
+{
+	MessageBoxA(nullptr,
+		"\t按键盘方向上键（“↑”）顺时针旋转方块\n\t按下方向键下键（“↓”）加快掉落\n\t按左键（“←”）时向左平移\n\t按右键（“→”）时向右平移\n\t按下H键可以获取帮助\n",
+		"Help", MB_OK);
 }

@@ -41,10 +41,10 @@ END_MESSAGE_MAP()
 
 void CChooseDlg::OnBnClickedButtonChooseok()
 {
-	this->SendMessage(WM_CLOSE);
-	CWnd* main = GetParent();
-	main->ShowWindow(HIDE_WINDOW);
 	CGameDlg gameDlg;
+	CWnd* main = GetParent();
+	this->SendMessage(WM_CLOSE);
+	main->ShowWindow(HIDE_WINDOW);
 	gameDlg.DoModal();
 	// TODO: 在此添加控件通知处理程序代码
 }
