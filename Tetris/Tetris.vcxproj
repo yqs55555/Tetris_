@@ -188,6 +188,7 @@
   <ItemGroup>
     <ClInclude Include="AchieveDlg.h" />
     <ClInclude Include="ChooseDlg.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GameDlg.h" />
     <ClInclude Include="RankDlg.h" />
     <ClInclude Include="Resource.h" />
@@ -199,6 +200,7 @@
   <ItemGroup>
     <ClCompile Include="AchieveDlg.cpp" />
     <ClCompile Include="ChooseDlg.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameDlg.cpp" />
     <ClCompile Include="RankDlg.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -17,6 +17,8 @@ public:
 #endif
 
 protected:
+	BOOL OnInitDialog();
+	void InitInfo(int pattern,int difficu);
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
 
 	DECLARE_MESSAGE_MAP()
@@ -25,4 +27,7 @@ public:
 	BOOL PreTranslateMessage(MSG * pMsg);
 	void ShowMain();
 	afx_msg void OnCancel();
+	afx_msg void OnStnClickedStaticGamepattern();
+	afx_msg void OnStnClickedStaticGamedifficu();
+	afx_msg void OnStnClickedStaticGamescore();
 };

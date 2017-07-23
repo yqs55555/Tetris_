@@ -25,4 +25,10 @@ public:
 	afx_msg void OnBnClickedButtonChoosereturn();
 	afx_msg void OnCbnSelchangeComboChoosedifficui();
 
+	afx_msg void OnBnClickedRadioPattern2();
+	afx_msg void OnBnClickedRadioPattern0();
+	afx_msg void OnBnClickedRadioPattern1();
+public:
+	int pattern = 0;
+	int difficu = 1;
 };

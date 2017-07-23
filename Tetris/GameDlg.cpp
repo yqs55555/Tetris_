@@ -3,8 +3,12 @@
 
 #include "stdafx.h"
 #include "Tetris.h"
-#include "GameDlg.h"
+#include "TetrisDlg.h"
+#include "AchieveDlg.h"
 #include "afxdialogex.h"
+#include "ChooseDlg.h"
+#include "GameDlg.h"
+#include "Game.h"
 
 #define KEY_DOWN(VK_NONAME) ((GetAsyncKeyState(VK_NONAME) & 0x8000) ? 1:0)
 
@@ -23,6 +27,32 @@ CGameDlg::~CGameDlg()
 
 }
 
+BOOL CGameDlg::OnInitDialog()
+{
+	CDialogEx::OnInitDialog();
+	CChooseDlg *cDlg = (CChooseDlg *)GetParent();
+	InitInfo(cDlg->pattern, cDlg->difficu);
+	Game game(cDlg->pattern, cDlg->difficu);
+	return TRUE;
+}
+void CGameDlg::InitInfo(int pattern,int difficu)
+{
+	switch (pattern)
+	{
+	case 0:
+		SetDlgItemText(IDC_STATIC_GAMEPATTERN, L"经典模式");
+		break;
+	case 1:
+		SetDlgItemText(IDC_STATIC_GAMEPATTERN, L"残局模式");
+		break;
+	case 2:
+		SetDlgItemText(IDC_STATIC_GAMEPATTERN, L"随机变速模式");
+		break;
+	}
+	CString dif;
+	dif.Format(_T("%d"),difficu);
+	SetDlgItemText(IDC_STATIC_GAMEDIFFICU, dif);
+}
 void CGameDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
@@ -31,6 +61,9 @@ void CGameDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CGameDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_GAMERETURN, &CGameDlg::OnBnClickedButtonGamereturn)
+	ON_STN_CLICKED(IDC_STATIC_GAMEPATTERN, &CGameDlg::OnStnClickedStaticGamepattern)
+	ON_STN_CLICKED(IDC_STATIC_GAMEDIFFICU, &CGameDlg::OnStnClickedStaticGamedifficu)
+	ON_STN_CLICKED(IDC_STATIC_GAMESCORE, &CGameDlg::OnStnClickedStaticGamescore)
 END_MESSAGE_MAP()
 
 
@@ -39,10 +72,10 @@ END_MESSAGE_MAP()
 
 void CGameDlg::OnBnClickedButtonGamereturn()
 {
-	//CWnd* main = GetParent()->GetParent();
-	//main->ShowWindow(SW_SHOW);
 	ShowMain();
+	GetParent()->SendMessage(WM_CLOSE);
 	this->SendMessage(WM_CLOSE);
+
 	// TODO: 在此添加控件通知处理程序代码
 }
 
@@ -68,6 +101,25 @@ void CGameDlg::ShowMain()
 void CGameDlg::OnCancel()
 {
 	ShowMain();
+	GetParent()->SendMessage(WM_CLOSE);
 	CDialogEx::OnCancel();
 }
 
+
+
+void CGameDlg::OnStnClickedStaticGamepattern()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CGameDlg::OnStnClickedStaticGamedifficu()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CGameDlg::OnStnClickedStaticGamescore()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
