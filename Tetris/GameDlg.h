@@ -27,7 +27,4 @@ public:
 	BOOL PreTranslateMessage(MSG * pMsg);
 	void ShowMain();
 	afx_msg void OnCancel();
-	afx_msg void OnStnClickedStaticGamepattern();
-	afx_msg void OnStnClickedStaticGamedifficu();
-	afx_msg void OnStnClickedStaticGamescore();
 };

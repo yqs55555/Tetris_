@@ -200,6 +200,6 @@ BOOL CTetrisDlg::PreTranslateMessage(MSG* pMsg)
 void CTetrisDlg::Help()
 {
 	MessageBoxA(nullptr,
-		"\t按键盘方向上键（“↑”）顺时针旋转方块\n\t按下方向键下键（“↓”）加快掉落\n\t按左键（“←”）时向左平移\n\t按右键（“→”）时向右平移\n\t按下H键可以获取帮助\n",
+		"\t按键盘方向上键（“↑”）顺时针旋转方块\n\t按下方向键下键（“↓”）加快掉落\n\t按左键（“←”）时向左平移\n\t按右键（“→”）时向右平移\n\t游戏过程中除随机变速模式外每消去十行难度等级会上升1\n\t按下H键可以获取帮助\n",
 		"Help", MB_OK);
 }

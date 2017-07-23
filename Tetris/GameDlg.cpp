@@ -61,9 +61,6 @@ void CGameDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CGameDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_GAMERETURN, &CGameDlg::OnBnClickedButtonGamereturn)
-	ON_STN_CLICKED(IDC_STATIC_GAMEPATTERN, &CGameDlg::OnStnClickedStaticGamepattern)
-	ON_STN_CLICKED(IDC_STATIC_GAMEDIFFICU, &CGameDlg::OnStnClickedStaticGamedifficu)
-	ON_STN_CLICKED(IDC_STATIC_GAMESCORE, &CGameDlg::OnStnClickedStaticGamescore)
 END_MESSAGE_MAP()
 
 
@@ -85,9 +82,10 @@ BOOL CGameDlg::PreTranslateMessage(MSG* pMsg)
 	if (pMsg->message == WM_KEYDOWN)
 	{
 		if (KEY_DOWN('H'))
-			MessageBoxA(nullptr,
-				"\t按键盘方向上键（“↑”）顺时针旋转方块\n\t按下方向键下键（“↓”）加快掉落\n\t按左键（“←”）时向左平移\n\t按右键（“→”）时向右平移\n\t按下H键可以获取帮助\n",
-				"Help", MB_OK);
+		{
+			CTetrisDlg* main = (CTetrisDlg*)GetParent()->GetParent();
+			main->Help();
+		}
 	}
 	return false;
 }
@@ -103,23 +101,4 @@ void CGameDlg::OnCancel()
 	ShowMain();
 	GetParent()->SendMessage(WM_CLOSE);
 	CDialogEx::OnCancel();
-}
-
-
-
-void CGameDlg::OnStnClickedStaticGamepattern()
-{
-	// TODO: 在此添加控件通知处理程序代码
-}
-
-
-void CGameDlg::OnStnClickedStaticGamedifficu()
-{
-	// TODO: 在此添加控件通知处理程序代码
-}
-
-
-void CGameDlg::OnStnClickedStaticGamescore()
-{
-	// TODO: 在此添加控件通知处理程序代码
 }
