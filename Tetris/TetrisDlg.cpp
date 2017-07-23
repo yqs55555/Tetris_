@@ -74,11 +74,6 @@ END_MESSAGE_MAP()
 
 // CTetrisDlg 消息处理程序
 
-void OnTimer()
-{
-	if(KEY_DOWN('H'))
-		MessageBoxA(nullptr, "这里是帮助", "Help", MB_OK);
-}
 BOOL CTetrisDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();

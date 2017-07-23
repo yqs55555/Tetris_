@@ -5,6 +5,7 @@
 #include "Tetris.h"
 #include "ChooseDlg.h"
 #include "afxdialogex.h"
+#include "GameDlg.h"
 
 
 // CChooseDlg 对话框
@@ -34,11 +35,17 @@ BEGIN_MESSAGE_MAP(CChooseDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
+
 // CChooseDlg 消息处理程序
 
 
 void CChooseDlg::OnBnClickedButtonChooseok()
 {
+	this->SendMessage(WM_CLOSE);
+	CWnd* main = GetParent();
+	main->ShowWindow(HIDE_WINDOW);
+	CGameDlg gameDlg;
+	gameDlg.DoModal();
 	// TODO: 在此添加控件通知处理程序代码
 }
 
@@ -55,3 +62,4 @@ void CChooseDlg::OnCbnSelchangeComboChoosedifficui()
 	//(CComboBox*)GetDlgItem(IDC_COMBO_CHOOSEDIFFICUI)
 	// TODO: 在此添加控件通知处理程序代码
 }
+

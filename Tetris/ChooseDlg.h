@@ -24,4 +24,5 @@ public:
 	afx_msg void OnBnClickedButtonChooseok();
 	afx_msg void OnBnClickedButtonChoosereturn();
 	afx_msg void OnCbnSelchangeComboChoosedifficui();
+
 };

@@ -188,6 +188,7 @@
   <ItemGroup>
     <ClInclude Include="AchieveDlg.h" />
     <ClInclude Include="ChooseDlg.h" />
+    <ClInclude Include="GameDlg.h" />
     <ClInclude Include="RankDlg.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -198,6 +199,7 @@
   <ItemGroup>
     <ClCompile Include="AchieveDlg.cpp" />
     <ClCompile Include="ChooseDlg.cpp" />
+    <ClCompile Include="GameDlg.cpp" />
     <ClCompile Include="RankDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -32,7 +32,6 @@
 #define IDC_RADIO_PATTERN1              1010
 #define IDC_RADIO_PATTERN2              1011
 #define IDC_COMBO_CHOOSEDIFFICUI        1019
-#define IDC_STATIC_DIFFICULT            1021
 #define IDC_STATIC_                     1021
 #define IDC_STATIC_GAMEDIFFICU          1022
 #define IDC_STATIC_GAMEACHIEVE          1023
