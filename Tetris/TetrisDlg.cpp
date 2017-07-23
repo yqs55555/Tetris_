@@ -7,6 +7,7 @@
 #include "TetrisDlg.h"
 #include "AchieveDlg.h"
 #include "afxdialogex.h"
+#include "ChooseDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -165,7 +166,8 @@ HCURSOR CTetrisDlg::OnQueryDragIcon()
 
 void CTetrisDlg::OnBnClickedButtonBegingame()
 {
-	MessageBoxA(nullptr,"游戏开始", "Tetris", MB_OKCANCEL);
+	CChooseDlg chooseDlg;
+	chooseDlg.DoModal();
 	// TODO: 在此添加控件通知处理程序代码
 }
 

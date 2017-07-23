@@ -39,6 +39,9 @@
     <ClInclude Include="RankDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ChooseDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Tetris.cpp">
@@ -54,6 +57,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="RankDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ChooseDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
