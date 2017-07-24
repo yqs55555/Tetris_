@@ -24,15 +24,16 @@ CGameDlg::CGameDlg(CWnd* pParent /*=NULL*/)
 
 CGameDlg::~CGameDlg()
 {
-
+	
 }
 
 BOOL CGameDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
-	CChooseDlg *cDlg = (CChooseDlg *)GetParent();
-	InitInfo(cDlg->pattern, cDlg->difficu);
-	Game game(cDlg->pattern, cDlg->difficu);
+	CChooseDlg *cDlg = (CChooseDlg *)GetParent();//获取选择界面的句柄
+	InitInfo(cDlg->pattern, cDlg->difficu);//打印游戏界面的游戏模式和难度
+	game = new Game(cDlg->pattern, cDlg->difficu);//初始化游戏
+
 	return TRUE;
 }
 void CGameDlg::InitInfo(int pattern,int difficu)
@@ -67,7 +68,7 @@ END_MESSAGE_MAP()
 // CGameDlg 消息处理程序
 
 
-void CGameDlg::OnBnClickedButtonGamereturn()
+void CGameDlg::OnBnClickedButtonGamereturn()//返回
 {
 	ShowMain();
 	GetParent()->SendMessage(WM_CLOSE);
@@ -83,20 +84,20 @@ BOOL CGameDlg::PreTranslateMessage(MSG* pMsg)
 	{
 		if (KEY_DOWN('H'))
 		{
-			CTetrisDlg* main = (CTetrisDlg*)GetParent()->GetParent();
+			CTetrisDlg* main = (CTetrisDlg*)GetParent()->GetParent();//获得主窗口句柄
 			main->Help();
 		}
 	}
 	return false;
 }
 
-void CGameDlg::ShowMain()
+void CGameDlg::ShowMain()//显示主窗口
 {
 	CWnd* main = GetParent()->GetParent();
 	main->ShowWindow(SW_SHOW);
 }
 
-void CGameDlg::OnCancel()
+void CGameDlg::OnCancel()//用户直接按下右上的关闭键时需要先显示主窗口
 {
 	ShowMain();
 	GetParent()->SendMessage(WM_CLOSE);

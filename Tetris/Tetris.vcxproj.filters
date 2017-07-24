@@ -77,9 +77,6 @@
     <ClCompile Include="Game.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Rank_b.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Rank.cpp">
       <Filter>源文件</Filter>
     </ClCompile>

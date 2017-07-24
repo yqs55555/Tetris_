@@ -6,8 +6,9 @@ public:
 	~Game();
 
 private:
-	int pattern;
-	int difficu;
+	int pattern;//模式
+	int difficu;//难度
+	void 
 
 };
 

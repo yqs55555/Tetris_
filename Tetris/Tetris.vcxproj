@@ -204,7 +204,6 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameDlg.cpp" />
     <ClCompile Include="Rank.cpp" />
-    <ClCompile Include="Rank_b.cpp" />
     <ClCompile Include="RankDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

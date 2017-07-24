@@ -1,12 +1,13 @@
 #pragma once
 
-
+#include "Game.h"
 // CGameDlg 对话框
 
 class CGameDlg : public CDialogEx
 {
 	DECLARE_DYNAMIC(CGameDlg)
-
+private:
+	Game *game;
 public:
 	CGameDlg(CWnd* pParent = NULL);   // 标准构造函数
 	virtual ~CGameDlg();
