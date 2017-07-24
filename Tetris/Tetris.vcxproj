@@ -184,9 +184,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="dataPtn0.txt" />
-    <Text Include="dataPtn1.txt" />
     <Text Include="dataPtn2.txt" />
     <Text Include="ReadMe.txt" />
+    <Text Include="dataPtn1.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AchieveDlg.h" />
