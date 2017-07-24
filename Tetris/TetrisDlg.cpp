@@ -47,7 +47,7 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CTetrisDlg 对话框
+// CTetrisDlg 对话框 
 
 
 

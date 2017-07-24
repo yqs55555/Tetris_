@@ -16,6 +16,15 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="dataPtn0.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="dataPtn1.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="dataPtn2.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tetris.h">
