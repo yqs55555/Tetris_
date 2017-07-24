@@ -36,13 +36,11 @@ END_MESSAGE_MAP()
 
 // CAchieveDlg 消息处理程序
 
-
 void CAchieveDlg::OnBnClickedButtonAchievereturn()
 {
 	this->SendMessage(WM_CLOSE);
 	// TODO: 在此添加控件通知处理程序代码
 }
-
 
 void CAchieveDlg::OnBnClickedButtonRank()
 {

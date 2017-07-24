@@ -36,5 +36,6 @@ public:
 	afx_msg void OnBnClickedButtonHelp();
 	afx_msg void OnBnClickedButtonExit();
 	afx_msg void OnBnClickedButtonAchieve();
+	void Help();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 };

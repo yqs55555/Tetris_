@@ -7,6 +7,7 @@
 #include "TetrisDlg.h"
 #include "AchieveDlg.h"
 #include "afxdialogex.h"
+#include "ChooseDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -73,11 +74,6 @@ END_MESSAGE_MAP()
 
 // CTetrisDlg 消息处理程序
 
-void OnTimer()
-{
-	if(KEY_DOWN('H'))
-		MessageBoxA(nullptr, "这里是帮助", "Help", MB_OK);
-}
 BOOL CTetrisDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
@@ -165,14 +161,15 @@ HCURSOR CTetrisDlg::OnQueryDragIcon()
 
 void CTetrisDlg::OnBnClickedButtonBegingame()
 {
-	MessageBoxA(nullptr,"游戏开始", "Tetris", MB_OKCANCEL);
+	CChooseDlg chooseDlg;
+	chooseDlg.DoModal();
 	// TODO: 在此添加控件通知处理程序代码
 }
 
 
 void CTetrisDlg::OnBnClickedButtonHelp()
 {
-	MessageBoxA(nullptr, "这里是帮助","Help", MB_OK);
+	Help();
 	// TODO: 在此添加控件通知处理程序代码
 }
 
@@ -196,7 +193,13 @@ BOOL CTetrisDlg::PreTranslateMessage(MSG* pMsg)
 {
 	// TODO: 在此添加专用代码和/或调用基类
 	if (pMsg->message == WM_KEYDOWN)
-		if(KEY_DOWN('H'))
-			MessageBoxA(nullptr, "这里是帮助", "Help", MB_OK);
+		if (KEY_DOWN('H'))
+			Help();
 	return false;
+}
+void CTetrisDlg::Help()
+{
+	MessageBoxA(nullptr,
+		"\t按键盘方向上键（“↑”）顺时针旋转方块\n\t按下方向键下键（“↓”）加快掉落\n\t按左键（“←”）时向左平移\n\t按右键（“→”）时向右平移\n\t游戏过程中除随机变速模式外每消去十行难度等级会上升1\n\t按下H键可以获取帮助\n",
+		"Help", MB_OK);
 }
