@@ -98,6 +98,7 @@ void Rank::readdata(string filename, int* score)
 	file.close();
 }
 
+
 void Rank::display()
 {
 	CString res;
@@ -109,3 +110,18 @@ void Rank::display()
 	}
 	MessageBox(nullptr, res, L"·ÖÊý", MB_OK);
 }
+void Rank::clear()
+{
+	clearrank("dataPtn0.txt");
+	clearrank("dataPtn1.txt");
+	clearrank("dataPtn2.txt");
+
+}
+void Rank::clearrank(string filename)
+{
+	fstream fs;
+	fs.open(filename, ios_base::out);
+	fs << "";
+	fs.close();
+}
+
