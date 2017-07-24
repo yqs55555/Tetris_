@@ -3,11 +3,13 @@
 //
 
 #pragma once
-
+#include "Rank.h"
 
 // CTetrisDlg 对话框
 class CTetrisDlg : public CDialogEx
 {
+public:
+	Rank *rank;
 // 构造
 public:
 	CTetrisDlg(CWnd* pParent = NULL);	// 标准构造函数

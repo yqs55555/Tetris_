@@ -5,6 +5,8 @@
 #include "Tetris.h"
 #include "AchieveDlg.h"
 #include "RankDlg.h"
+#include "Rank.h"
+#include "TetrisDlg.h"
 #include "afxdialogex.h"
 
 
@@ -46,5 +48,7 @@ void CAchieveDlg::OnBnClickedButtonRank()
 {
 	CRankDlg rankDlg;
 	rankDlg.DoModal();
+	CTetrisDlg* tetrisDlg = (CTetrisDlg *)GetParent();
+	tetrisDlg->rank->display();
 	// TODO: 在此添加控件通知处理程序代码
 }
