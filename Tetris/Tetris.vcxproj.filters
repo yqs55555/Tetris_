@@ -110,25 +110,25 @@
     <Image Include="res\Tetris.ico">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\1block.bmp">
+    <Image Include="res\1block.bmp">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\2block.bmp">
+    <Image Include="res\2block.bmp">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\3block.bmp">
+    <Image Include="res\3block.bmp">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\4block.bmp">
+    <Image Include="res\4block.bmp">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\5block.bmp">
+    <Image Include="res\5block.bmp">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\6block.bmp">
+    <Image Include="res\6block.bmp">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\7block.bmp">
+    <Image Include="res\7block.bmp">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

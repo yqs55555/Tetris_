@@ -226,13 +226,13 @@
     <None Include="res\Tetris.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\1block.bmp" />
-    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\2block.bmp" />
-    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\3block.bmp" />
-    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\4block.bmp" />
-    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\5block.bmp" />
-    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\6block.bmp" />
-    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\7block.bmp" />
+    <Image Include="res\1block.bmp" />
+    <Image Include="res\2block.bmp" />
+    <Image Include="res\3block.bmp" />
+    <Image Include="res\4block.bmp" />
+    <Image Include="res\5block.bmp" />
+    <Image Include="res\6block.bmp" />
+    <Image Include="res\7block.bmp" />
     <Image Include="res\Tetris.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

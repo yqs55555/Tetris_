@@ -25,7 +25,7 @@ void Rank::textread()
 	string filenamePtn1 = "dataPtn1.txt";
 	readdata(filenamePtn1, scorePtn1);
 	string filenamePtn2 = "dataPtn2.txt";
-	readdata(filenamePtn2, scorePtn2);
+	readdata(filenamePtn2, scorePtn2); 
 }
 
 void Rank::textwrite(string str, int *score)
