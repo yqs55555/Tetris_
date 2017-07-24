@@ -183,7 +183,10 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="dataPtn0.txt" />
+    <Text Include="dataPtn2.txt" />
     <Text Include="ReadMe.txt" />
+    <Text Include="dataPtn1.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AchieveDlg.h" />
@@ -200,11 +203,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AchieveDlg.cpp" />
+    <ClCompile Include="achivement.cpp" />
     <ClCompile Include="ChooseDlg.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameDlg.cpp" />
     <ClCompile Include="Rank.cpp" />
-    <ClCompile Include="Rank_b.cpp" />
     <ClCompile Include="RankDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
