@@ -9,6 +9,7 @@ Rank::Rank()
 	memset(scorePtn1, 0, sizeof(int) * 15);
 	memset(scorePtn2, 0, sizeof(int) * 15);
 	textread();
+
 }
 
 
@@ -25,13 +26,16 @@ void Rank::textread()
 	readdata(filenamePtn1, scorePtn1);
 	string filenamePtn2 = "dataPtn2.txt";
 	readdata(filenamePtn2, scorePtn2);
-
-
-	
 }
 
-void Rank::textwrite(string str, int * a)
+void Rank::textwrite(string str, int *score)
 {
+	fstream fs;
+	fs.open(str, ios_base::out);
+	for (int i = 0; i<10; i++)
+		fs << score[i] << ' ';
+	fs << score[9];
+	fs.close();
 }
 
 void Rank::BubbleSort(int *p)
@@ -56,18 +60,18 @@ void Rank::swap(int & a, int & b)
 	a = a - b;
 }
 
-void Rank::insert(int *a, int n)
+void Rank::insert(int *score, int n)
 {
 	{
-		BubbleSort(a);
-		if (caninsert(a, n))
+		BubbleSort(score);
+		if (caninsert(score, n))
 		{
-			int position = caninsert(a, n) + 1;
+			int position = caninsert(score, n) + 1;
 			for (int i = 10; i >position; i--)
 			{
-				a[i] = a[i - 1];
+				score[i] = score[i - 1];
 			}
-			    a[position] = n;
+			    score[position] = n;
 		}
 	}
 }

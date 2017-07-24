@@ -203,7 +203,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AchieveDlg.cpp" />
-    <ClCompile Include="achivement.cpp" />
     <ClCompile Include="ChooseDlg.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameDlg.cpp" />
