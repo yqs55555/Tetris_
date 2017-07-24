@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "Tetris.h"
+#include "TetrisDlg.h"
 #include "RankDlg.h"
 #include "afxdialogex.h"
 
@@ -45,6 +46,8 @@ void CRankDlg::OnBnClickedButtonRankreturn()
 
 void CRankDlg::OnBnClickedButtonRankclear()
 {
+	CTetrisDlg *main = (CTetrisDlg*)GetTopLevelParent();
+	main->rank->clear();
 	MessageBoxA(nullptr, "清理成功！", "提示", MB_OK);
 	// TODO: 在此添加控件通知处理程序代码
 }
