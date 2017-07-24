@@ -32,7 +32,7 @@ BOOL CGameDlg::OnInitDialog()
 	CDialogEx::OnInitDialog();
 	CChooseDlg *cDlg = (CChooseDlg *)GetParent();
 	InitInfo(cDlg->pattern, cDlg->difficu);
-	Game game(cDlg->pattern, cDlg->difficu);
+	game = new Game(cDlg->pattern, cDlg->difficu);
 	return TRUE;
 }
 void CGameDlg::InitInfo(int pattern,int difficu)

@@ -60,6 +60,9 @@
     <ClInclude Include="Rank.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Tetris.cpp">
@@ -89,6 +92,9 @@
     <ClCompile Include="Rank.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Tetris.rc">
@@ -102,6 +108,27 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\Tetris.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\1block.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\2block.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\3block.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\4block.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\5block.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\6block.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\7block.bmp">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

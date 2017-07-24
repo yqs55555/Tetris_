@@ -190,6 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AchieveDlg.h" />
+    <ClInclude Include="Box.h" />
     <ClInclude Include="ChooseDlg.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameDlg.h" />
@@ -203,6 +204,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AchieveDlg.cpp" />
+    <ClCompile Include="Box.cpp" />
     <ClCompile Include="ChooseDlg.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameDlg.cpp" />
@@ -224,6 +226,13 @@
     <None Include="res\Tetris.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\1block.bmp" />
+    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\2block.bmp" />
+    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\3block.bmp" />
+    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\4block.bmp" />
+    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\5block.bmp" />
+    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\6block.bmp" />
+    <Image Include="E:\mygame\vs2017\MFC\BlockGame\BlockGame\res\7block.bmp" />
     <Image Include="res\Tetris.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
