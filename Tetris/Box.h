@@ -13,5 +13,16 @@ private:
 	void Make_5();// Z
 	void Make_6();// op_z
 	void Make_7();//_|_
+public:
+	int Pos_x;
+	int Pos_y;
+	BOOL CanMoveDown();
+	BOOL CanMoveLeft();
+	BOOL CanMoveRight();
+	BOOL CanRoll();
+	void Roll();
+	void MoveDown();
+	void MoveLeft();
+	void MoveRight();
 };
 

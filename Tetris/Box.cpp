@@ -4,8 +4,25 @@
 
 Box::Box(int type)
 {
-	srand(time(NULL));
-	
+	switch (type)
+	{
+	case 1:
+		Make_1(); break;
+	case 2:
+		Make_2(); break;
+	case 3:
+		Make_3(); break;
+	case 4:
+		Make_4(); break;
+	case 5:
+		Make_5(); break;
+	case 6:
+		Make_6(); break;
+	case 7:
+		Make_7(); break;
+	default:
+		break;
+	}
 }
 
 
@@ -49,4 +66,40 @@ void Box::Make_6()
 void Box::Make_7()
 {
 	_data[2][0] = _data[2][1] = _data[2][2] = _data[1][1] = 1;
+}
+
+BOOL Box::CanMoveDown()
+{
+	return 0;
+}
+
+BOOL Box::CanMoveLeft()
+{
+	return 0;
+}
+
+BOOL Box::CanMoveRight()
+{
+	return 0;
+}
+
+BOOL Box::CanRoll()
+{
+	return 0;
+}
+
+void Box::Roll()
+{
+}
+
+void Box::MoveDown()
+{
+}
+
+void Box::MoveLeft()
+{
+}
+
+void Box::MoveRight()
+{
 }

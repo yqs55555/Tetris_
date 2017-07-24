@@ -86,6 +86,26 @@ BOOL CGameDlg::PreTranslateMessage(MSG* pMsg)
 			CTetrisDlg* main = (CTetrisDlg*)GetParent()->GetParent();
 			main->Help();
 		}
+		if (KEY_DOWN(VK_UP))
+		{
+			if (game->box->CanRoll())
+				game->box->Roll();
+		}
+		if (KEY_DOWN(VK_LEFT))
+		{
+			if (game->box->CanMoveLeft())
+				game->box->MoveLeft();
+		}
+		if (KEY_DOWN(VK_RIGHT))
+		{
+			if (game->box->CanMoveRight())
+				game->box->MoveRight();
+		}
+		if (KEY_DOWN(VK_DOWN))
+		{
+			if (game->box->CanMoveDown())
+				game->box->MoveDown();
+		}
 	}
 	return false;
 }
