@@ -8,7 +8,6 @@ public:
 private:
 	int pattern;//模式
 	int difficu;//难度
-	void 
 
 };
 
