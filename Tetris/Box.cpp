@@ -23,6 +23,8 @@ Box::Box(int type)
 	default:
 		break;
 	}
+	Pos_x = 4;
+	Pos_y = 1;
 }
 
 

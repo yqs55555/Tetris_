@@ -8,10 +8,15 @@ public:
 	void start();
 	void PauseOrContinue();
 	BOOL Crash(int x, int y);
+	BOOL IsDead();
+	int DeleteLines();
+	BOOL GameOver();
 	Box *box;
 	Box *nextBox;
 	static const int CANVAS_WIDTH = 9;
 	static const int CANVAS_HEIGHT = 20;
+	int bigCanvas[20][9];
+	int smallCanvas[4][4];
 public:
 	BOOL CanMoveDown();
 	BOOL CanMoveLeft();
@@ -21,19 +26,15 @@ public:
 	void MoveDown();
 	void MoveLeft();
 	void MoveRight();
+	void AddBox();
 	BOOL isRun = TRUE;
 
 private:
 	int pattern;
 	int difficu;
 	static const int RECT_SIZE = 30;
-	int bigCanvas[20][10];
-	int smallCanvas[4][4];
-	int DeleteLines();
 	void DeleteLine(int index);
 	BOOL CanDeleteLine(int index);
 	void CalScore(int line);
-	void AddBox();
-	BOOL GameOver();
 };
 

@@ -13,7 +13,7 @@ Game::Game(int pa,int di)
 	memset(smallCanvas, 0, sizeof(smallCanvas));
 	srand((unsigned int)time(NULL));
 	box = new Box(rand() % 7 + 1);
-	srand(difficu);
+	srand(rand());
 	nextBox = new Box(rand() % 7 + 1);
 }
 
@@ -51,10 +51,6 @@ BOOL Game::CanDeleteLine(int index)
 	return count == CANVAS_WIDTH;
 }
 void Game::CalScore(int line)
-{
-}
-
-void Game::AddBox()
 {
 }
 
@@ -131,7 +127,7 @@ void Game::PauseOrContinue()
 BOOL Game::Crash(int x,int y)
 {
 	int cnt1 = 4, cnt2 = 0;
-	int tmp[9][20];
+	int tmp[20][9];
 
 	// 复制一个副本，统计原有方块数+tool中的块数
 	for (int i = 0; i<CANVAS_HEIGHT; i++)
@@ -159,4 +155,50 @@ BOOL Game::Crash(int x,int y)
 			cnt2 += tmp[i][j];
 
 	return cnt2 == cnt1;
+}
+
+BOOL Game::IsDead()
+{
+	int cnt1 = 4, cnt2 = 0, x = (CANVAS_WIDTH - 4) / 2, y = 0;
+	int tmp[20][9];
+
+	// 复制一个副本，统计原有方块数+tool中的块数
+	for (int i = 0; i<CANVAS_HEIGHT; i++)
+		for (int j = 0; j<CANVAS_WIDTH; j++)
+		{
+			tmp[i][j] = bigCanvas[i][j];
+			cnt1 += tmp[i][j];
+		}
+
+	// 假设发生变换
+	for (int i = 0; i<4; i++)
+		for (int j = 0; j<4; j++)
+		{
+			if (i + y >= 0 &&
+				i + y<CANVAS_HEIGHT  &&
+				j + x >= 0 &&
+				j + x<CANVAS_WIDTH   &&
+				nextBox->_data[i][j])
+				tmp[i + y][j + x] = 1;
+		}
+
+	// 统计变换后方块数
+	for (int i = 0; i<CANVAS_HEIGHT; i++)
+		for (int j = 0; j<CANVAS_WIDTH; j++)
+			cnt2 += tmp[i][j];
+
+	return cnt2 != cnt1;
+}
+void Game::AddBox()
+{
+	for (int i = 0; i<4; i++)
+		for (int j = 0; j<4; j++)
+		{
+			if (i + box->Pos_y >= 0 &&
+				i + box->Pos_y<CANVAS_HEIGHT  &&
+				j + box->Pos_x >= 0 &&
+				j + box->Pos_x<CANVAS_WIDTH   &&
+				box->_data[i][j])
+				bigCanvas[(i + box->Pos_y - 1)][j + box->Pos_x -1] = 1;
+		}
 }

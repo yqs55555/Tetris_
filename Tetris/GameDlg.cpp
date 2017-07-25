@@ -60,12 +60,12 @@ void CGameDlg::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 }
 
-
 BEGIN_MESSAGE_MAP(CGameDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_GAMERETURN, &CGameDlg::OnBnClickedButtonGamereturn)
 	ON_BN_CLICKED(IDC_BUTTON_GAMERESTART, &CGameDlg::OnBnClickedButtonGamerestart)
 	ON_BN_CLICKED(IDC_BUTTON_GAMESTOPORCONTI, &CGameDlg::OnBnClickedButtonGamestoporconti)
 	ON_WM_PAINT()
+	ON_WM_TIMER() // 映射添加消息
 END_MESSAGE_MAP()
 
 
@@ -144,7 +144,7 @@ void CGameDlg::OnBnClickedButtonGamerestart()
 
 void CGameDlg::OnPaint()
 {
-	CDialogEx::OnPaint();
+	CDialog::OnPaint();
 	PaintBigCanvas();
 	PaintSmallCanvas();
 #if 0 
@@ -162,7 +162,21 @@ void CGameDlg::OnPaint()
 
 void CGameDlg::OnTimer(UINT_PTR nIDEvent)
 {
-	game->Roll();
+	if(game->CanMoveDown())
+		game->MoveDown();
+	else
+	{
+		game->DeleteLines();
+		if (game->IsDead())
+			game->isRun = false;
+		else
+		{
+			srand((unsigned int)time(nullptr));
+			delete game->box;
+			game->box = game->nextBox;
+			game->nextBox = new Box(rand() % 7 + 1);
+		}
+	}
 	if (!game->isRun)
 	{
 		KillTimer(1);
@@ -191,16 +205,22 @@ void CGameDlg::PaintBigCanvas()
 	CBrush brushMap;//这里要特别注意，虽然两次是不同的颜色，但是要分别载入画刷
 	brushMap.CreateSolidBrush(RGB(0, 255, 255));
 	MemDC->SelectObject(&brushMap);
-
 	wnd->GetClientRect(&rect);
 
+	game->AddBox();
 	for (int i = 0; i<game->CANVAS_HEIGHT; i++)
 		for (int j = 0; j<game->CANVAS_WIDTH; j++)
-			MemDC->Rectangle(
-				j*rect.Width() / game->CANVAS_WIDTH,
-				i*rect.Height() / game->CANVAS_HEIGHT,
-				(j + 1)*rect.Width() / game->CANVAS_WIDTH,
-				(i + 1)*rect.Height() / game->CANVAS_HEIGHT);
+			if (game->bigCanvas[i][j] == 1)
+			{
+				MemDC->Rectangle(
+					j*rect.Width() / game->CANVAS_WIDTH,
+					i*rect.Height() / game->CANVAS_HEIGHT,
+					(j + 1)*rect.Width() / game->CANVAS_WIDTH,
+					(i + 1)*rect.Height() / game->CANVAS_HEIGHT);
+				if(game->CanMoveDown())
+					game->bigCanvas[i][j] = 0;
+			}
+
 }
 
 void CGameDlg::PaintSmallCanvas()
@@ -215,12 +235,16 @@ void CGameDlg::PaintSmallCanvas()
 	MemDC->SelectObject(&brushMap);
 
 	wnd->GetClientRect(&rect);
+	for (int i = 0; i < 4; i++)
+		for (int j = 0; j < 4; j++)
+			game->smallCanvas[i][j] = game->nextBox->_data[i][j];
 
 	for (int i = 0; i<4; i++)
 		for (int j = 0; j<4; j++)
-			MemDC->Rectangle(
-				j*rect.Width() / 4,
-				i*rect.Height() / 4,
-				(j + 1)*rect.Width() / 4,
-				(i + 1)*rect.Height() / 4);
+			if(game->smallCanvas[j][i] == 1)
+				MemDC->Rectangle(
+					j*rect.Width() / 4,
+					i*rect.Height() / 4,
+					(j + 1)*rect.Width() / 4,
+					(i + 1)*rect.Height() / 4);
 }
