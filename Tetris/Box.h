@@ -1,10 +1,12 @@
 #pragma once
+
 class Box
 {
 public:
 	Box(int type);
 	~Box();
 	int _data[4][4];
+	CBitmap m_bmpBox[7];// 记录方块图形
 private:
 	void Make_1();//---
 	void Make_2();//[ ]
@@ -14,15 +16,7 @@ private:
 	void Make_6();// op_z
 	void Make_7();//_|_
 public:
-	int Pos_x;
-	int Pos_y;
-	BOOL CanMoveDown();
-	BOOL CanMoveLeft();
-	BOOL CanMoveRight();
-	BOOL CanRoll();
-	void Roll();
-	void MoveDown();
-	void MoveLeft();
-	void MoveRight();
+	int Pos_x;//记左上角的坐标x
+	int Pos_y;//记左上角的坐标y
 };
 

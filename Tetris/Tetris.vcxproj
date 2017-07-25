@@ -233,6 +233,7 @@
     <Image Include="res\5block.bmp" />
     <Image Include="res\6block.bmp" />
     <Image Include="res\7block.bmp" />
+    <Image Include="res\background.bmp" />
     <Image Include="res\Tetris.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

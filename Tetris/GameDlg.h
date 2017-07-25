@@ -18,7 +18,6 @@ public:
 #endif
 
 protected:
-	BOOL OnInitDialog();
 	void InitInfo(int pattern,int difficu);
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
 
@@ -28,4 +27,12 @@ public:
 	BOOL PreTranslateMessage(MSG * pMsg);
 	void ShowMain();
 	afx_msg void OnCancel();
+	afx_msg void OnBnClickedButtonGamerestart();
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	void OnBnClickedButtonGamestoporconti();
+	void PaintBigCanvas();
+	void PaintSmallCanvas();
+protected:
+	afx_msg void OnPaint();
+	virtual BOOL OnInitDialog();
 };

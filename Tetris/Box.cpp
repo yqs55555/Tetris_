@@ -1,9 +1,9 @@
 #include "stdafx.h"
 #include "Box.h"
 
-
 Box::Box(int type)
 {
+	memset(_data, 0, sizeof(_data));
 	switch (type)
 	{
 	case 1:
@@ -31,7 +31,7 @@ Box::~Box()
 
 }
 
-//---
+//----
 void Box::Make_1()
 {
 	_data[1][0] = _data[1][1] = _data[1][2] = _data[1][3] = 1;
@@ -66,40 +66,4 @@ void Box::Make_6()
 void Box::Make_7()
 {
 	_data[2][0] = _data[2][1] = _data[2][2] = _data[1][1] = 1;
-}
-
-BOOL Box::CanMoveDown()
-{
-	return 0;
-}
-
-BOOL Box::CanMoveLeft()
-{
-	return 0;
-}
-
-BOOL Box::CanMoveRight()
-{
-	return 0;
-}
-
-BOOL Box::CanRoll()
-{
-	return 0;
-}
-
-void Box::Roll()
-{
-}
-
-void Box::MoveDown()
-{
-}
-
-void Box::MoveLeft()
-{
-}
-
-void Box::MoveRight()
-{
 }

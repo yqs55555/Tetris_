@@ -131,5 +131,8 @@
     <Image Include="res\7block.bmp">
       <Filter>资源文件</Filter>
     </Image>
+    <Image Include="res\background.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>

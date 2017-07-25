@@ -12,6 +12,14 @@
 #define IDD_DIALOG_RANK                 132
 #define IDD_DIALOG_CHOOSE               134
 #define IDD_DIALOG_GAME                 137
+#define IDB_BITMAP1                     152
+#define IDB_BITMAP2                     153
+#define IDB_BITMAP3                     154
+#define IDB_BITMAP4                     155
+#define IDB_BITMAP5                     156
+#define IDB_BITMAP6                     157
+#define IDB_BITMAP7                     158
+#define IDB_BITMAP8                     160
 #define IDC_BUTTON1                     1001
 #define IDC_BUTTON_BEGINGAME            1001
 #define IDC_BUTTON_ACHIEVERETURN        1001
@@ -37,14 +45,17 @@
 #define IDC_STATIC_GAMEACHIEVE          1023
 #define IDC_STATIC_GAMEPATTERN          1024
 #define IDC_STATIC_GAMESCORE            1025
+#define IDC_STATIC_MAIN                 1026
+#define IDC_PIC_MAIN                    1026
+#define IDC_PIC_SMALL                   1027
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        139
+#define _APS_NEXT_RESOURCE_VALUE        162
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1026
+#define _APS_NEXT_CONTROL_VALUE         1028
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

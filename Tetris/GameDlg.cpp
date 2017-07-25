@@ -19,7 +19,6 @@ IMPLEMENT_DYNAMIC(CGameDlg, CDialogEx)
 CGameDlg::CGameDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_DIALOG_GAME, pParent)
 {
-	
 }
 
 CGameDlg::~CGameDlg()
@@ -33,6 +32,9 @@ BOOL CGameDlg::OnInitDialog()
 	CChooseDlg *cDlg = (CChooseDlg *)GetParent();
 	InitInfo(cDlg->pattern, cDlg->difficu);
 	game = new Game(cDlg->pattern, cDlg->difficu);
+	game->start();
+	SetTimer(1, 500, NULL);
+
 	return TRUE;
 }
 void CGameDlg::InitInfo(int pattern,int difficu)
@@ -61,6 +63,9 @@ void CGameDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CGameDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_GAMERETURN, &CGameDlg::OnBnClickedButtonGamereturn)
+	ON_BN_CLICKED(IDC_BUTTON_GAMERESTART, &CGameDlg::OnBnClickedButtonGamerestart)
+	ON_BN_CLICKED(IDC_BUTTON_GAMESTOPORCONTI, &CGameDlg::OnBnClickedButtonGamestoporconti)
+	ON_WM_PAINT()
 END_MESSAGE_MAP()
 
 
@@ -83,42 +88,139 @@ BOOL CGameDlg::PreTranslateMessage(MSG* pMsg)
 	{
 		if (KEY_DOWN('H'))
 		{
-			CTetrisDlg* main = (CTetrisDlg*)GetParent()->GetParent();
+			CTetrisDlg* main = (CTetrisDlg*)GetTopLevelParent();
 			main->Help();
 		}
 		if (KEY_DOWN(VK_UP))
 		{
-			if (game->box->CanRoll())
-				game->box->Roll();
+			if (game->CanRoll())
+				game->Roll();
 		}
 		if (KEY_DOWN(VK_LEFT))
 		{
-			if (game->box->CanMoveLeft())
-				game->box->MoveLeft();
+			if (game->CanMoveLeft())
+				game->MoveLeft();
 		}
 		if (KEY_DOWN(VK_RIGHT))
 		{
-			if (game->box->CanMoveRight())
-				game->box->MoveRight();
+			if (game->CanMoveRight())
+				game->MoveRight();
 		}
 		if (KEY_DOWN(VK_DOWN))
 		{
-			if (game->box->CanMoveDown())
-				game->box->MoveDown();
+			if (game->CanMoveDown())
+				game->MoveDown();
 		}
+		Invalidate(true);// 重绘画面
 	}
 	return false;
 }
 
-void CGameDlg::ShowMain()
+void CGameDlg::ShowMain()//显示主窗口
 {
 	CWnd* main = GetParent()->GetParent();
 	main->ShowWindow(SW_SHOW);
 }
 
-void CGameDlg::OnCancel()
+void CGameDlg::OnCancel()//直接按下右上关闭键时
 {
 	ShowMain();
 	GetParent()->SendMessage(WM_CLOSE);
 	CDialogEx::OnCancel();
+}
+
+
+void CGameDlg::OnBnClickedButtonGamerestart()
+{
+	delete game;//销毁此游戏
+	CChooseDlg *cDlg = (CChooseDlg *)GetParent();
+	InitInfo(cDlg->pattern, cDlg->difficu);
+	game = new Game(cDlg->pattern, cDlg->difficu);//创建新的一局游戏
+	Invalidate(true);// 重绘画面
+	game->start();
+	
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+void CGameDlg::OnPaint()
+{
+	CDialogEx::OnPaint();
+	PaintBigCanvas();
+	PaintSmallCanvas();
+#if 0 
+		CDialogEx::OnPaint();
+		CWnd *wnd = GetDlgItem(IDC_PIC_MAIN);
+		CDC *MemDC;
+		MemDC = wnd->GetDC();
+		MemDC->SetBkColor(RGB(0, 255, 255));
+		CBrush brushMap;//这里要特别注意，虽然两次是不同的颜色，但是要分别载入画刷
+		brushMap.CreateSolidBrush(RGB(0, 255, 255));
+		MemDC->SelectObject(&brushMap);
+		MemDC->Rectangle(CRect(0, 0, 100, 100));
+#endif
+}
+
+void CGameDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	game->Roll();
+	if (!game->isRun)
+	{
+		KillTimer(1);
+		TCHAR *msg = _T("Game Over!");
+		MessageBox(msg);
+	}
+	Invalidate(true);// 重绘画面
+}
+void CGameDlg::OnBnClickedButtonGamestoporconti()
+{
+	game->PauseOrContinue();
+	if(!game->isRun)
+		KillTimer(1);
+	if (game->isRun)
+		SetTimer(1, 500, nullptr);
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+void CGameDlg::PaintBigCanvas()
+{
+	CRect rect;
+
+	CWnd *wnd = GetDlgItem(IDC_PIC_MAIN);
+	CDC *MemDC;
+	MemDC = wnd->GetDC();
+	CBrush brushMap;//这里要特别注意，虽然两次是不同的颜色，但是要分别载入画刷
+	brushMap.CreateSolidBrush(RGB(0, 255, 255));
+	MemDC->SelectObject(&brushMap);
+
+	wnd->GetClientRect(&rect);
+
+	for (int i = 0; i<game->CANVAS_HEIGHT; i++)
+		for (int j = 0; j<game->CANVAS_WIDTH; j++)
+			MemDC->Rectangle(
+				j*rect.Width() / game->CANVAS_WIDTH,
+				i*rect.Height() / game->CANVAS_HEIGHT,
+				(j + 1)*rect.Width() / game->CANVAS_WIDTH,
+				(i + 1)*rect.Height() / game->CANVAS_HEIGHT);
+}
+
+void CGameDlg::PaintSmallCanvas()
+{
+	CRect rect;
+
+	CWnd *wnd = GetDlgItem(IDC_PIC_SMALL);
+	CDC *MemDC;
+	MemDC = wnd->GetDC();
+	CBrush brushMap;//这里要特别注意，虽然两次是不同的颜色，但是要分别载入画刷
+	brushMap.CreateSolidBrush(RGB(0, 255, 255));
+	MemDC->SelectObject(&brushMap);
+
+	wnd->GetClientRect(&rect);
+
+	for (int i = 0; i<4; i++)
+		for (int j = 0; j<4; j++)
+			MemDC->Rectangle(
+				j*rect.Width() / 4,
+				i*rect.Height() / 4,
+				(j + 1)*rect.Width() / 4,
+				(i + 1)*rect.Height() / 4);
 }
