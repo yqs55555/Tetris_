@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Rank.h"
-#include"fstream"
+#include <fstream>
 
 
 Rank::Rank()
@@ -9,6 +9,9 @@ Rank::Rank()
 	memset(scorePtn1, 0, sizeof(int) * 15);
 	memset(scorePtn2, 0, sizeof(int) * 15);
 	textread();
+	BubbleSort(scorePtn0);
+	BubbleSort(scorePtn1);
+	BubbleSort(scorePtn2);
 }
 
 
@@ -39,9 +42,9 @@ void Rank::textwrite(string str, int *score)
 
 void Rank::BubbleSort(int *p)
 {
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 11; i++)
 	{
-		for (int j = 0; j < 10 - i - 1; j++)
+		for (int j = 0; j < 11 - i - 1; j++)
 		{
 			if (p[j] < p[j + 1])
 			{
@@ -61,31 +64,27 @@ void Rank::swap(int & a, int & b)
 
 void Rank::insert(int *score, int n)
 {
-	{
-		BubbleSort(score);
-		if (caninsert(score, n))
-		{
-			int position = caninsert(score, n) + 1;
-			for (int i = 10; i >position; i--)
-			{
-				score[i] = score[i - 1];
-			}
-			    score[position] = n;
-		}
-	}
+	score[10] = n;
+	BubbleSort(score);
 }
 
-int Rank::caninsert(int * array, int n)
+BOOL Rank::caninsert(int * array, int n)
 {
-	return 0;
+	for (int i = 0; i < 10; i++)
+	{
+		if (n > array[i])
+		{
+			return TRUE;
+		}
+	}
+	return FALSE;
+		
 }
 
 void Rank::readdata(string filename, int* score)
 {
 	fstream file;
 	file.open(filename, ios::in);
-	if (!file)
-		cout << "file not founded" << endl;
 	int pos = 0;
 	while (!file.eof())//是否到文件结尾
 	{

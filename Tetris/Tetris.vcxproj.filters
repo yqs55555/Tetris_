@@ -25,6 +25,12 @@
     <Text Include="dataPtn2.txt">
       <Filter>资源文件</Filter>
     </Text>
+    <Text Include="DeathNum.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="dataAchieve.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tetris.h">
@@ -114,27 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\Tetris.ico">
-      <Filter>资源文件</Filter>
-    </Image>
-    <Image Include="res\1block.bmp">
-      <Filter>资源文件</Filter>
-    </Image>
-    <Image Include="res\2block.bmp">
-      <Filter>资源文件</Filter>
-    </Image>
-    <Image Include="res\3block.bmp">
-      <Filter>资源文件</Filter>
-    </Image>
-    <Image Include="res\4block.bmp">
-      <Filter>资源文件</Filter>
-    </Image>
-    <Image Include="res\5block.bmp">
-      <Filter>资源文件</Filter>
-    </Image>
-    <Image Include="res\6block.bmp">
-      <Filter>资源文件</Filter>
-    </Image>
-    <Image Include="res\7block.bmp">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

@@ -12,8 +12,10 @@ public:
 	BOOL GameOver();
 	void CalScore(int line);
 	BOOL UpdateDifficu(int tmpLines);//更新难度
+	void SetDeathNum(int num);
 	Box *box;
 	Box *nextBox;
+	int deathNum;
 	static const int CANVAS_WIDTH = 9;
 	static const int CANVAS_HEIGHT = 20;
 	int bigCanvas[20][9];//存储静止方块的画布
@@ -41,5 +43,6 @@ private:
 	static const int RECT_SIZE = 30;
 	void DeleteLine(int index);
 	BOOL CanDeleteLine(int index);
+	int GetDeathNum();
 };
 

@@ -33,7 +33,7 @@ CGameDlg::CGameDlg(CWnd* pParent /*=NULL*/)
 
 CGameDlg::~CGameDlg()
 {
-
+	delete game;
 }
 
 BOOL CGameDlg::OnInitDialog()
@@ -142,7 +142,6 @@ void CGameDlg::OnCancel()//直接按下右上关闭键时
 
 void CGameDlg::OnBnClickedButtonGamerestart()
 {
-	
 	Restart();
 	// TODO: 在此添加控件通知处理程序代码
 }
@@ -171,37 +170,40 @@ void CGameDlg::OnTimer(UINT_PTR nIDEvent)
 		game->MoveDown();
 	else
 	{
-		game->AddBox(0);
-		int tmpLines = game->DeleteLines();
-		game->CalScore(tmpLines);
+		game->AddBox(0);//把该方块加入静止画布
+		int tmpLines = game->DeleteLines();//消除行
+		game->CalScore(tmpLines);//计算分数
+		CTetrisDlg *tDlg = (CTetrisDlg *)GetTopLevelParent();
 		if (game->UpdateDifficu(tmpLines))
 		{
 			KillTimer(1);
 			SetTimer(1, game->baseSpeed - 100 * game->difficu, nullptr);
 		}
+		GetAchieve(tDlg, tmpLines);
 		showInfo();
 		if (game->IsDead())//如果死亡
 		{
+			game->SetDeathNum(++game->deathNum);
 			game->isRun = false;
-			CTetrisDlg *tDlg = (CTetrisDlg *)GetTopLevelParent();
+			GetAchieve(tDlg,tmpLines);
 			//比对游戏得分，将可以上榜的分数写入排行榜文件
 			if (game->pattern == 0)//经典模式
 			{
-				if (tDlg->rank->caninsert(tDlg->rank->scorePtn0, game->scores));
+				if (tDlg->rank->caninsert(tDlg->rank->scorePtn0, game->scores))
 				{
-					tDlg->rank->insert(tDlg->rank->scorePtn2, game->scores);
+					tDlg->rank->insert(tDlg->rank->scorePtn0, game->scores);
 				}
 			}
 			else if(game->pattern == 1)//残局模式
 			{
-				if (tDlg->rank->caninsert(tDlg->rank->scorePtn1, game->scores));
+				if (tDlg->rank->caninsert(tDlg->rank->scorePtn1, game->scores))
 				{
-					tDlg->rank->insert(tDlg->rank->scorePtn2, game->scores);
+					tDlg->rank->insert(tDlg->rank->scorePtn1, game->scores);
 				}
 			}
 			else if (game->pattern == 2)//随机变速模式
 			{
-				if (tDlg->rank->caninsert(tDlg->rank->scorePtn2, game->scores));
+				if (tDlg->rank->caninsert(tDlg->rank->scorePtn2, game->scores))
 				{
 					tDlg->rank->insert(tDlg->rank->scorePtn2, game->scores);
 				}
@@ -293,4 +295,64 @@ void CGameDlg::PaintSmallCanvas()
 					i*rect.Height() / 4,
 					(j + 1)*rect.Width() / 4,
 					(i + 1)*rect.Height() / 4);
+}
+
+void CGameDlg::GetAchieve(CTetrisDlg *tDlg, int tmpLines)
+{
+	if (!tDlg->achieve->hasgetachieve(0))
+		if (game->scores >= 100)
+		{
+			tDlg->achieve->getnewachive(0);
+		}
+	if (!tDlg->achieve->hasgetachieve(1))
+		if (game->scores >= 500)
+			tDlg->achieve->getnewachive(1);
+	if (!tDlg->achieve->hasgetachieve(2))
+		if (game->scores >= 1000)
+			tDlg->achieve->getnewachive(2);
+	if (!tDlg->achieve->hasgetachieve(3))
+		if (game->difficu == 9)
+			tDlg->achieve->getnewachive(3);
+	if (!tDlg->achieve->hasgetachieve(4))
+		if (game->difficu == 9 && game->totalLines >= 10)
+			tDlg->achieve->getnewachive(4);
+	if (!tDlg->achieve->hasgetachieve(5))
+		if (game->difficu == 9 && game->totalLines >= 30)
+			tDlg->achieve->getnewachive(5);
+	if (!tDlg->achieve->hasgetachieve(6))
+		if (game->scores == 233)
+			tDlg->achieve->getnewachive(6);
+	if (!tDlg->achieve->hasgetachieve(7))
+		if (game->scores == 666)
+			tDlg->achieve->getnewachive(7);
+	if (!tDlg->achieve->hasgetachieve(8))
+		if (game->scores == 6666)
+			tDlg->achieve->getnewachive(8);
+	if (!tDlg->achieve->hasgetachieve(9))
+		if (game->totalLines == 0)
+			tDlg->achieve->getnewachive(9);
+	if (!tDlg->achieve->hasgetachieve(10))
+		if (game->totalLines == 1)
+			tDlg->achieve->getnewachive(10);
+	if (!tDlg->achieve->hasgetachieve(11))
+		if (tmpLines == 2)
+			tDlg->achieve->getnewachive(11);
+	if (!tDlg->achieve->hasgetachieve(12))
+		if (tmpLines == 3)
+			tDlg->achieve->getnewachive(12);
+	if (!tDlg->achieve->hasgetachieve(13))
+		if (tmpLines == 4)
+			tDlg->achieve->getnewachive(13);
+	if (!tDlg->achieve->hasgetachieve(14))
+		if (game->deathNum >= 10)
+			tDlg->achieve->getnewachive(14);
+	if (!tDlg->achieve->hasgetachieve(15))
+		if (game->deathNum >= 50)
+			tDlg->achieve->getnewachive(15);
+	if (!tDlg->achieve->hasgetachieve(16))
+		if (game->deathNum >= 100)
+			tDlg->achieve->getnewachive(16);
+	if (!tDlg->achieve->hasgetachieve(17))
+		if (game->deathNum >= 1)
+			tDlg->achieve->getnewachive(17);
 }

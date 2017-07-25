@@ -5,6 +5,7 @@
 #include "afxdialogex.h"
 #include "ChooseDlg.h"
 #include "Game.h"
+#include <fstream>
 
 Game::Game(int pa, int di)
 	:pattern(pa), difficu(di)
@@ -17,6 +18,7 @@ Game::Game(int pa, int di)
 	nextBox = new Box(rand() % 7 + 1);
 	totalLines = 0;
 	baseSpeed = 1000;
+	deathNum = GetDeathNum();
 }
 
 Game::~Game()
@@ -55,6 +57,32 @@ BOOL Game::CanDeleteLine(int index)
 		if (bigCanvas[index][i] == 1)
 			count++;
 	return count == CANVAS_WIDTH;
+}
+int Game::GetDeathNum()
+{
+	fstream file;
+	file.open("DeathNum.txt", ios::in);
+	if (!file)
+		MessageBox(L"file not founded");
+	int pos = 0;
+	while (!file.eof())//是否到文件结尾
+	{
+		file >> deathNum;
+		pos++;
+		if (pos >= 100)
+			break;
+	}
+	file.close();
+	return 0;
+}
+
+void Game::SetDeathNum(int num)
+{
+	fstream fs;
+	fs.open("DeathNum.txt", ios_base::out);
+	
+	fs << num;
+	fs.close();
 }
 void Game::CalScore(int line)
 {

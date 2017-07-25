@@ -183,8 +183,10 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="dataAchieve.txt" />
     <Text Include="dataPtn0.txt" />
     <Text Include="dataPtn2.txt" />
+    <Text Include="DeathNum.txt" />
     <Text Include="ReadMe.txt" />
     <Text Include="dataPtn1.txt" />
   </ItemGroup>
@@ -228,13 +230,6 @@
     <None Include="res\Tetris.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\1block.bmp" />
-    <Image Include="res\2block.bmp" />
-    <Image Include="res\3block.bmp" />
-    <Image Include="res\4block.bmp" />
-    <Image Include="res\5block.bmp" />
-    <Image Include="res\6block.bmp" />
-    <Image Include="res\7block.bmp" />
     <Image Include="res\Tetris.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
