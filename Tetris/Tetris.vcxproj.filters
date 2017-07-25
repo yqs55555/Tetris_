@@ -63,6 +63,9 @@
     <ClInclude Include="Box.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Achieve.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Tetris.cpp">
@@ -93,6 +96,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Box.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Achieve.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -129,9 +135,6 @@
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="res\7block.bmp">
-      <Filter>资源文件</Filter>
-    </Image>
-    <Image Include="res\background.bmp">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

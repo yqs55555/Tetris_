@@ -189,6 +189,7 @@
     <Text Include="dataPtn1.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Achieve.h" />
     <ClInclude Include="AchieveDlg.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="ChooseDlg.h" />
@@ -203,6 +204,7 @@
     <ClInclude Include="TetrisDlg.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Achieve.cpp" />
     <ClCompile Include="AchieveDlg.cpp" />
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="ChooseDlg.cpp" />
@@ -233,7 +235,6 @@
     <Image Include="res\5block.bmp" />
     <Image Include="res\6block.bmp" />
     <Image Include="res\7block.bmp" />
-    <Image Include="res\background.bmp" />
     <Image Include="res\Tetris.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

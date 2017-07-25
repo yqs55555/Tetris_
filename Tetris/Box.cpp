@@ -23,8 +23,8 @@ Box::Box(int type)
 	default:
 		break;
 	}
-	Pos_x = 4;
-	Pos_y = 1;
+	Pos_x = 2;
+	Pos_y = 0;
 }
 
 
@@ -68,4 +68,20 @@ void Box::Make_6()
 void Box::Make_7()
 {
 	_data[2][0] = _data[2][1] = _data[2][2] = _data[1][1] = 1;
+}
+
+int* Box::GetRollData()
+{
+	int tmp[4][4];
+	int *result = (int *)malloc(sizeof(int) * 16);
+
+	for (int i = 0; i<4; i++)
+		for (int j = 0; j<4; j++)
+			tmp[i][j] = _data[i][j];
+
+	for (int i = 0; i<4; i++)
+		for (int j = 0; j<4; j++)
+			result[i * 4 + j] = tmp[j][3 - i];
+
+	return result;
 }

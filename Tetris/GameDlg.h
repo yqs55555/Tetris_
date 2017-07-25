@@ -8,6 +8,7 @@ class CGameDlg : public CDialogEx
 	DECLARE_DYNAMIC(CGameDlg)
 private:
 	Game *game;
+	void showInfo();
 public:
 	CGameDlg(CWnd* pParent = NULL);   // 标准构造函数
 	virtual ~CGameDlg();
@@ -20,7 +21,6 @@ public:
 protected:
 	void InitInfo(int pattern,int difficu);
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
-
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedButtonGamereturn();
@@ -33,6 +33,8 @@ public:
 	void PaintBigCanvas();
 	void PaintSmallCanvas();
 protected:
-	afx_msg void OnPaint();
+	afx_msg void Restart();
+	void OnPaint();
 	virtual BOOL OnInitDialog();
+
 };

@@ -9,7 +9,6 @@ Rank::Rank()
 	memset(scorePtn1, 0, sizeof(int) * 15);
 	memset(scorePtn2, 0, sizeof(int) * 15);
 	textread();
-
 }
 
 
