@@ -141,12 +141,15 @@ BOOL Game::Crash(int x,int y)
 	for (int i = 0; i<4; i++)
 		for (int j = 0; j<4; j++)
 		{
-			if (i + y >= 0 &&
-				i + y<CANVAS_HEIGHT  &&
-				j + x >= 0 &&
-				j + x<CANVAS_WIDTH   &&
+			if (i + y > 0 &&
+				i + y < CANVAS_HEIGHT -1  &&
+				j + x > 0 &&
+				j + x <  CANVAS_WIDTH-1 &&
 				box->_data[i][j])
+			{
+				tmp[i][j] = 0;
 				tmp[i + y][j + x] = 1;
+			}
 		}
 
 	// 统计变换后方块数
@@ -174,9 +177,9 @@ BOOL Game::IsDead()
 	for (int i = 0; i<4; i++)
 		for (int j = 0; j<4; j++)
 		{
-			if (i + y >= 0 &&
+			if (i + y >0 &&
 				i + y<CANVAS_HEIGHT  &&
-				j + x >= 0 &&
+				j + x > 0 &&
 				j + x<CANVAS_WIDTH   &&
 				nextBox->_data[i][j])
 				tmp[i + y][j + x] = 1;

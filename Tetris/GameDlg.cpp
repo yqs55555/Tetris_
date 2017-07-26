@@ -110,6 +110,7 @@ BOOL CGameDlg::PreTranslateMessage(MSG* pMsg)
 		{
 			if (game->CanMoveDown())
 				game->MoveDown();
+			
 		}
 		Invalidate(true);// ÖØ»æ»­Ãæ
 	}
@@ -215,8 +216,8 @@ void CGameDlg::PaintBigCanvas()
 				MemDC->Rectangle(
 					j*rect.Width() / game->CANVAS_WIDTH,
 					i*rect.Height() / game->CANVAS_HEIGHT,
-					(j + 1)*rect.Width() / game->CANVAS_WIDTH,
-					(i + 1)*rect.Height() / game->CANVAS_HEIGHT);
+					(j+1 )*rect.Width() / game->CANVAS_WIDTH,
+					(i+1)*rect.Height() / game->CANVAS_HEIGHT);
 				if(game->CanMoveDown())
 					game->bigCanvas[i][j] = 0;
 			}
