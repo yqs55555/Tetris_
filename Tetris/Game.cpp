@@ -30,6 +30,7 @@ Game::Game(int pa, int di)
 	baseSpeed = 1000;
 	deathNum = GetDeathNum();
 	randSpeedCount = 0;
+	scores = 0;
 }
 
 Game::~Game()
@@ -353,7 +354,7 @@ void Game::AddBox(int choose)
 BOOL Game::UpdateDifficu(int tmpLines)
 {
 	totalLines += tmpLines;
-	if ((totalLines % 10 == 0) && (difficu < 9) && totalLines > 0)
+	if ((totalLines % 10 == 0) && (difficu < 9) && totalLines > 0 && tmpLines > 0)
 	{
 		difficu++;
 		return TRUE;

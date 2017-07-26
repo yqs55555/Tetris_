@@ -157,6 +157,7 @@ void CGameDlg::Restart()
 	game = new Game(cDlg->pattern, cDlg->difficu);//创建新的一局游戏
 	Invalidate(true);// 重绘画面
 	game->start();
+	showInfo();
 	SetTimer(1,game->baseSpeed - 100 * cDlg->difficu , nullptr);
 }
 void CGameDlg::OnPaint()
@@ -173,7 +174,8 @@ void CGameDlg::OnTimer(UINT_PTR nIDEvent)
 		game->MoveDown();
 		if (game->pattern == 2)
 		{
-			if ((++game->randSpeedCount % 3) == 0)
+			game->randSpeedCount += (game->baseSpeed - 100*game->difficu);
+			if(game->randSpeedCount >= 3000)
 			{
 				KillTimer(1);
 				srand(time(NULL));
