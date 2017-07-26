@@ -26,6 +26,7 @@ public:
 	int difficu;//难度
 	int baseSpeed;//基础下落速度
 	int pattern;//游戏模式
+	int randSpeedCount;
 public:
 	BOOL CanMoveDown();
 	BOOL CanMoveLeft();

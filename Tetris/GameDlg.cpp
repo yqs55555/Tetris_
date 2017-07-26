@@ -166,7 +166,21 @@ void CGameDlg::OnPaint()
 void CGameDlg::OnTimer(UINT_PTR nIDEvent)
 {
 	if (game->CanMoveDown())
+	{
 		game->MoveDown();
+		if (game->pattern == 2)
+		{
+			if ((++game->randSpeedCount % 3) == 0)
+			{
+				KillTimer(1);
+				srand(time(NULL));
+				game->difficu = rand() % 9 + 1;
+				SetTimer(1, game->baseSpeed - 100 * game->difficu,nullptr);
+				showInfo();
+				game->randSpeedCount = 0;
+			}
+		}
+	}
 	else
 	{
 		game->AddBox(0);//把该方块加入静止画布
@@ -191,6 +205,7 @@ void CGameDlg::OnTimer(UINT_PTR nIDEvent)
 				if (tDlg->rank->caninsert(tDlg->rank->scorePtn0, game->scores))
 				{
 					tDlg->rank->insert(tDlg->rank->scorePtn0, game->scores);
+					tDlg->rank->textwrite("dataPtn0.txt", tDlg->rank->scorePtn0);
 				}
 			}
 			else if(game->pattern == 1)//残局模式
@@ -198,6 +213,8 @@ void CGameDlg::OnTimer(UINT_PTR nIDEvent)
 				if (tDlg->rank->caninsert(tDlg->rank->scorePtn1, game->scores))
 				{
 					tDlg->rank->insert(tDlg->rank->scorePtn1, game->scores);
+					tDlg->rank->textwrite("dataPtn1.txt", tDlg->rank->scorePtn1);
+
 				}
 			}
 			else if (game->pattern == 2)//随机变速模式
@@ -205,6 +222,7 @@ void CGameDlg::OnTimer(UINT_PTR nIDEvent)
 				if (tDlg->rank->caninsert(tDlg->rank->scorePtn2, game->scores))
 				{
 					tDlg->rank->insert(tDlg->rank->scorePtn2, game->scores);
+					tDlg->rank->textwrite("dataPtn2.txt", tDlg->rank->scorePtn2);
 				}
 			}
 		}

@@ -29,6 +29,7 @@ Game::Game(int pa, int di)
 	totalLines = 0;
 	baseSpeed = 1000;
 	deathNum = GetDeathNum();
+	randSpeedCount = 0;
 }
 
 Game::~Game()
