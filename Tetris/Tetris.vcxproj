@@ -22,39 +22,39 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{43087B80-F545-47D0-969D-F55330C41AC0}</ProjectGuid>
     <RootNamespace>Tetris</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
     <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.10586.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -183,12 +183,15 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="dataAchieve.txt" />
     <Text Include="dataPtn0.txt" />
     <Text Include="dataPtn2.txt" />
+    <Text Include="DeathNum.txt" />
     <Text Include="ReadMe.txt" />
     <Text Include="dataPtn1.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Achieve.h" />
     <ClInclude Include="AchieveDlg.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="ChooseDlg.h" />
@@ -203,6 +206,7 @@
     <ClInclude Include="TetrisDlg.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Achieve.cpp" />
     <ClCompile Include="AchieveDlg.cpp" />
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="ChooseDlg.cpp" />
@@ -226,14 +230,6 @@
     <None Include="res\Tetris.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\1block.bmp" />
-    <Image Include="res\2block.bmp" />
-    <Image Include="res\3block.bmp" />
-    <Image Include="res\4block.bmp" />
-    <Image Include="res\5block.bmp" />
-    <Image Include="res\6block.bmp" />
-    <Image Include="res\7block.bmp" />
-    <Image Include="res\background.bmp" />
     <Image Include="res\Tetris.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

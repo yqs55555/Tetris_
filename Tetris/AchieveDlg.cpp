@@ -33,6 +33,7 @@ void CAchieveDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CAchieveDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_ACHIEVERETURN, &CAchieveDlg::OnBnClickedButtonAchievereturn)
 	ON_BN_CLICKED(IDC_BUTTON_RANK, &CAchieveDlg::OnBnClickedButtonRank)
+	ON_BN_CLICKED(IDC_BUTTON_ACHIEVE, &CAchieveDlg::OnBnClickedButtonAchieve)
 END_MESSAGE_MAP()
 
 
@@ -50,5 +51,13 @@ void CAchieveDlg::OnBnClickedButtonRank()
 	tetrisDlg->rank->display();
 	CRankDlg rankDlg;
 	rankDlg.DoModal();
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CAchieveDlg::OnBnClickedButtonAchieve()
+{
+	CTetrisDlg *tDlg = (CTetrisDlg *)GetTopLevelParent();
+	tDlg->achieve->display();
 	// TODO: 在此添加控件通知处理程序代码
 }
