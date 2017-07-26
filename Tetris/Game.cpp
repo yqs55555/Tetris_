@@ -98,13 +98,13 @@ void Game::SetDeathNum(int num)
 void Game::CalScore(int line)
 {
 	if (line == 1)
-		scores += 5;
+		scores += 3;
 	if (line == 2)
 		scores += 8;
 	if (line == 3)
-		scores += 10;
+		scores += 12;
 	if (line == 4)
-		scores += 15;
+		scores += 16;
 }
 
 BOOL Game::GameOver()
