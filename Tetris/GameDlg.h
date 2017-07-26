@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Game.h"
+#include "TetrisDlg.h"
 // CGameDlg ¶Ô»°¿ò
 
 class CGameDlg : public CDialogEx

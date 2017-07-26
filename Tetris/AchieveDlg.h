@@ -23,4 +23,5 @@ protected:
 public:
 	afx_msg void OnBnClickedButtonAchievereturn();
 	afx_msg void OnBnClickedButtonRank();
+	afx_msg void OnBnClickedButtonAchieve();
 };

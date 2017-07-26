@@ -33,7 +33,6 @@ CGameDlg::CGameDlg(CWnd* pParent /*=NULL*/)
 
 CGameDlg::~CGameDlg()
 {
-	delete game;
 }
 
 BOOL CGameDlg::OnInitDialog()
@@ -299,60 +298,150 @@ void CGameDlg::PaintSmallCanvas()
 
 void CGameDlg::GetAchieve(CTetrisDlg *tDlg, int tmpLines)
 {
+	CString outPut;
 	if (!tDlg->achieve->hasgetachieve(0))
 		if (game->scores >= 100)
 		{
 			tDlg->achieve->getnewachive(0);
+			outPut = tDlg->achieve->achievename[0];
+			SetDlgItemText(IDC_STATIC_GAMEDIFFICU, outPut);
+			Sleep(200);
 		}
 	if (!tDlg->achieve->hasgetachieve(1))
 		if (game->scores >= 500)
+		{
 			tDlg->achieve->getnewachive(1);
+			outPut = tDlg->achieve->achievename[1];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(2))
 		if (game->scores >= 1000)
+		{
 			tDlg->achieve->getnewachive(2);
+			outPut = tDlg->achieve->achievename[2];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(3))
 		if (game->difficu == 9)
+		{
 			tDlg->achieve->getnewachive(3);
+			outPut = tDlg->achieve->achievename[3];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(4))
 		if (game->difficu == 9 && game->totalLines >= 10)
+		{
 			tDlg->achieve->getnewachive(4);
+			outPut = tDlg->achieve->achievename[4];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(5))
 		if (game->difficu == 9 && game->totalLines >= 30)
+		{
 			tDlg->achieve->getnewachive(5);
+			outPut = tDlg->achieve->achievename[5];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(6))
 		if (game->scores == 233)
+		{
 			tDlg->achieve->getnewachive(6);
+			outPut = tDlg->achieve->achievename[6];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(7))
 		if (game->scores == 666)
+		{
 			tDlg->achieve->getnewachive(7);
+			outPut = tDlg->achieve->achievename[7];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(8))
 		if (game->scores == 6666)
+		{
 			tDlg->achieve->getnewachive(8);
+			outPut = tDlg->achieve->achievename[8];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(9))
-		if (game->totalLines == 0)
+		if (game->totalLines == 0 && game->IsDead())
+		{
 			tDlg->achieve->getnewachive(9);
+			outPut = tDlg->achieve->achievename[9];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(10))
 		if (game->totalLines == 1)
+		{
 			tDlg->achieve->getnewachive(10);
+			outPut = tDlg->achieve->achievename[10];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(11))
 		if (tmpLines == 2)
+		{
 			tDlg->achieve->getnewachive(11);
+			outPut = tDlg->achieve->achievename[11];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(12))
 		if (tmpLines == 3)
+		{
 			tDlg->achieve->getnewachive(12);
+			outPut = tDlg->achieve->achievename[12];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(13))
 		if (tmpLines == 4)
+		{
 			tDlg->achieve->getnewachive(13);
+			outPut = tDlg->achieve->achievename[13];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(14))
 		if (game->deathNum >= 10)
+		{
 			tDlg->achieve->getnewachive(14);
+			outPut = tDlg->achieve->achievename[14];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(15))
 		if (game->deathNum >= 50)
+		{
 			tDlg->achieve->getnewachive(15);
+			outPut = tDlg->achieve->achievename[15];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(16))
 		if (game->deathNum >= 100)
+		{
 			tDlg->achieve->getnewachive(16);
+			outPut = tDlg->achieve->achievename[16];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 	if (!tDlg->achieve->hasgetachieve(17))
-		if (game->deathNum >= 1)
+		if (game->deathNum == 1)
+		{
 			tDlg->achieve->getnewachive(17);
+			outPut = tDlg->achieve->achievename[17];
+			SetDlgItemText(IDC_STATIC_GAMEACHIEVE, outPut);
+			Sleep(200);
+		}
 }
+

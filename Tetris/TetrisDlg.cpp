@@ -7,6 +7,7 @@
 #include "TetrisDlg.h"
 #include "AchieveDlg.h"
 #include "afxdialogex.h"
+#include <afxwin.h>
 #include "ChooseDlg.h"
 
 #ifdef _DEBUG
@@ -104,6 +105,9 @@ BOOL CTetrisDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
+
+	ShowWindow(SW_SHOW);
+	UpdateWindow();
 	rank = new Rank();
 	achieve = new Achieve();
 

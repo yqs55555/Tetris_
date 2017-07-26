@@ -73,7 +73,7 @@ int Game::GetDeathNum()
 			break;
 	}
 	file.close();
-	return 0;
+	return deathNum;
 }
 
 void Game::SetDeathNum(int num)
