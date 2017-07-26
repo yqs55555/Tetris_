@@ -11,6 +11,16 @@ Game::Game(int pa, int di)
 	:pattern(pa), difficu(di)
 {
 	memset(bigCanvas, 0, sizeof(bigCanvas));
+	if (pa == 1)
+	{
+		srand(time(NULL));
+		for (int i = 20; i > 0; i--)
+		{
+			int x = rand() % 9;
+			int y = rand() % 5 + 15;
+			bigCanvas[y][x] = 1;
+		}
+	}
 	memset(smallCanvas, 0, sizeof(smallCanvas));
 	srand((unsigned int)time(NULL));
 	box = new Box(rand() % 7 + 1);
