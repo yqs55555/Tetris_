@@ -83,9 +83,12 @@ END_MESSAGE_MAP()
 
 void CGameDlg::OnBnClickedButtonGamereturn()
 {
-	ShowMain();
-	GetParent()->SendMessage(WM_CLOSE);
-	this->SendMessage(WM_CLOSE);
+	if (MessageBoxA(nullptr, "是否返回主界面？", "请选择", MB_OKCANCEL) == IDOK)
+	{
+		ShowMain();
+		GetParent()->SendMessage(WM_CLOSE);
+		this->SendMessage(WM_CLOSE);
+	}
 
 	// TODO: 在此添加控件通知处理程序代码
 }

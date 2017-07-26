@@ -48,6 +48,9 @@
 #define IDC_STATIC_MAIN                 1026
 #define IDC_PIC_MAIN                    1026
 #define IDC_PIC_SMALL                   1027
+#define IDC_STATIC_PATTERN0             1028
+#define IDC_STATIC_PATTERN1             1029
+#define IDC_STATIC_PATTERN2             1030
 
 // Next default values for new objects
 // 
@@ -55,7 +58,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        162
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1028
+#define _APS_NEXT_CONTROL_VALUE         1031
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

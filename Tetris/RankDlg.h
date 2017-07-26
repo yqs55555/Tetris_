@@ -23,4 +23,6 @@ protected:
 public:
 	afx_msg void OnBnClickedButtonRankreturn();
 	afx_msg void OnBnClickedButtonRankclear();
+protected:
+	virtual BOOL OnInitDialog();
 };

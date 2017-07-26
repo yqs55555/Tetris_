@@ -48,7 +48,6 @@ void CAchieveDlg::OnBnClickedButtonAchievereturn()
 void CAchieveDlg::OnBnClickedButtonRank()
 {
 	CTetrisDlg* tetrisDlg = (CTetrisDlg *)GetParent();
-	tetrisDlg->rank->display();
 	CRankDlg rankDlg;
 	rankDlg.DoModal();
 	// TODO: 在此添加控件通知处理程序代码

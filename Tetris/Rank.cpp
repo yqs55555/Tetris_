@@ -1,6 +1,15 @@
 #include "stdafx.h"
 #include "Rank.h"
 #include <fstream>
+#include "TetrisDlg.h"
+#include "AchieveDlg.h"
+#include "Tetris.h"
+#include "TetrisDlg.h"
+#include "AchieveDlg.h"
+#include "afxdialogex.h"
+#include "ChooseDlg.h"
+#include "GameDlg.h"
+#include "Game.h"
 
 
 Rank::Rank()
@@ -97,7 +106,7 @@ void Rank::readdata(string filename, int* score)
 }
 
 
-void Rank::display()
+void Rank::display(CRankDlg& cDlg)
 {
 	CString res;
 	for (int i = 0; i < 10; i++)
@@ -106,7 +115,23 @@ void Rank::display()
 		test.Format(_T("%d"), scorePtn0[i]);
 		res = res + test + '\n';
 	}
-	MessageBox(nullptr, res, L"·ÖÊý", MB_OK);
+	SetDlgItemText(cDlg,IDC_STATIC_PATTERN0, res);
+	res = "";
+	for (int i = 0; i < 10; i++)
+	{
+		CString test;
+		test.Format(_T("%d"), scorePtn1[i]);
+		res = res + test + '\n';
+	}
+	SetDlgItemText(cDlg, IDC_STATIC_PATTERN1, res);
+	res = "";
+	for (int i = 0; i < 10; i++)
+	{
+		CString test;
+		test.Format(_T("%d"), scorePtn2[i]);
+		res = res + test + '\n';
+	}
+	SetDlgItemText(cDlg, IDC_STATIC_PATTERN2, res);
 }
 void Rank::clear()
 {
@@ -117,6 +142,9 @@ void Rank::clear()
 }
 void Rank::clearrank(string filename)
 {
+	memset(scorePtn0, 0, sizeof(int) * 15);
+	memset(scorePtn1, 0, sizeof(int) * 15);
+	memset(scorePtn2, 0, sizeof(int) * 15);
 	fstream fs;
 	fs.open(filename, ios_base::out);
 	fs << "";

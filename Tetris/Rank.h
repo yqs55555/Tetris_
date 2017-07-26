@@ -1,5 +1,7 @@
 #pragma once
 #include<iostream>
+#include "AchieveDlg.h"
+#include "RankDlg.h"
 using namespace std;
 
 class Rank
@@ -7,7 +9,7 @@ class Rank
 public:
 	Rank();
 	~Rank();
-	void display();//打印
+	void display(CRankDlg& rDlg);//打印
 	void clear();
 	void textwrite(string str, int *a);//写入数据文件
 	void BubbleSort(int  *p);//从大至小排列
@@ -21,6 +23,5 @@ private:
 	void swap(int &a, int &b);//交换位置
 	void readdata(string filename,int* score);
 	void clearrank(string filename);
-
 };
 

@@ -15,7 +15,7 @@ IMPLEMENT_DYNAMIC(CRankDlg, CDialogEx)
 CRankDlg::CRankDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_DIALOG_RANK, pParent)
 {
-
+	
 }
 
 CRankDlg::~CRankDlg()
@@ -49,5 +49,15 @@ void CRankDlg::OnBnClickedButtonRankclear()
 	CTetrisDlg *main = (CTetrisDlg*)GetTopLevelParent();
 	main->rank->clear();
 	MessageBoxA(nullptr, "清理成功！", "提示", MB_OK);
+	this->SendMessage(WM_CLOSE);
 	// TODO: 在此添加控件通知处理程序代码
+}
+
+BOOL CRankDlg::OnInitDialog()
+{
+	CDialogEx::OnInitDialog();
+	CTetrisDlg *tetrisDlg = (CTetrisDlg *)GetTopLevelParent();
+	tetrisDlg->rank->display(*this);
+
+	return TRUE;
 }
