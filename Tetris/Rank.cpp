@@ -17,8 +17,8 @@ Rank::Rank()
 	memset(scorePtn0, 0, sizeof(int) * 15);
 	memset(scorePtn1, 0, sizeof(int) * 15);
 	memset(scorePtn2, 0, sizeof(int) * 15);
-	textread();
-	BubbleSort(scorePtn0);
+	textread();//读取数据文件
+	BubbleSort(scorePtn0);//排序
 	BubbleSort(scorePtn1);
 	BubbleSort(scorePtn2);
 }

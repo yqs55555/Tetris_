@@ -47,7 +47,7 @@ void CRankDlg::OnBnClickedButtonRankreturn()
 void CRankDlg::OnBnClickedButtonRankclear()
 {
 	CTetrisDlg *main = (CTetrisDlg*)GetTopLevelParent();
-	main->rank->clear();
+	main->rank->clear();//删除所有分数数据
 	MessageBoxA(nullptr, "清理成功！", "提示", MB_OK);
 	this->SendMessage(WM_CLOSE);
 	// TODO: 在此添加控件通知处理程序代码
@@ -57,7 +57,7 @@ BOOL CRankDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 	CTetrisDlg *tetrisDlg = (CTetrisDlg *)GetTopLevelParent();
-	tetrisDlg->rank->display(*this);
+	tetrisDlg->rank->display(*this);//打印排行榜
 
 	return TRUE;
 }
