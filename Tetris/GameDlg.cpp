@@ -175,7 +175,7 @@ void CGameDlg::OnTimer(UINT_PTR nIDEvent)
 		if (game->pattern == 2)
 		{
 			game->randSpeedCount += (game->baseSpeed - 100*game->difficu);
-			if(game->randSpeedCount >= 3000)
+			if(game->randSpeedCount >= 5000)
 			{
 				KillTimer(1);
 				srand(time(NULL));
@@ -311,7 +311,7 @@ void CGameDlg::PaintSmallCanvas()
 
 	for (int i = 0; i<4; i++)
 		for (int j = 0; j<4; j++)
-			if (game->smallCanvas[j][i] == 1)
+			if (game->smallCanvas[i][j] == 1)
 				MemDC->Rectangle(
 					j*rect.Width() / 4,
 					i*rect.Height() / 4,
