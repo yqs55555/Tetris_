@@ -60,7 +60,6 @@ void Game::DeleteLine(int index)
 
 	for (int j = 0; j < CANVAS_WIDTH; j++)
 		bigCanvas[0][j] = 0;
-
 }
 
 BOOL Game::CanDeleteLine(int index)
@@ -78,13 +77,9 @@ int Game::GetDeathNum()
 	file.open("DeathNum.txt", ios::in);
 	if (!file)
 		MessageBox(L"file not founded");
-	int pos = 0;
 	while (!file.eof())//是否到文件结尾
 	{
 		file >> deathNum;
-		pos++;
-		if (pos >= 100)
-			break;
 	}
 	file.close();
 	return deathNum;
@@ -100,6 +95,7 @@ void Game::SetDeathNum(int num)
 }
 void Game::CalScore(int line)
 {
+	//base score:3 得分计算方式（一次消去两行及以上时）：消去行数*base score + 消去行数
 	if (line == 1)
 		scores += 3;
 	if (line == 2)
@@ -108,11 +104,6 @@ void Game::CalScore(int line)
 		scores += 12;
 	if (line == 4)
 		scores += 16;
-}
-
-BOOL Game::GameOver()
-{
-	return 0;
 }
 
 BOOL Game::CanMoveDown()

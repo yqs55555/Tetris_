@@ -9,7 +9,6 @@ public:
 	void PauseOrContinue();
 	BOOL IsDead();
 	int DeleteLines();
-	BOOL GameOver();
 	void CalScore(int line);
 	BOOL UpdateDifficu(int tmpLines);//更新难度
 	void SetDeathNum(int num);

@@ -33,6 +33,7 @@ CGameDlg::CGameDlg(CWnd* pParent /*=NULL*/)
 
 CGameDlg::~CGameDlg()
 {
+	delete game;
 }
 
 BOOL CGameDlg::OnInitDialog()
@@ -250,7 +251,6 @@ void CGameDlg::OnTimer(UINT_PTR nIDEvent)
 		}
 		else
 		{
-			delete game;
 			ShowMain();
 			GetParent()->SendMessage(WM_CLOSE);
 			CDialogEx::OnCancel();
