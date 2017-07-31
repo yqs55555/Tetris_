@@ -17,6 +17,7 @@ Achieve::Achieve()
 
 Achieve::~Achieve()
 {
+	delete achievename;
 }
 
 void Achieve::display()

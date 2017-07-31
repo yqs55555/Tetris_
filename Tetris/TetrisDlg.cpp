@@ -58,6 +58,12 @@ CTetrisDlg::CTetrisDlg(CWnd* pParent /*=NULL*/)
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
+CTetrisDlg::~CTetrisDlg()
+{
+	delete rank;
+	delete achieve;
+}
+
 void CTetrisDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
@@ -183,10 +189,11 @@ void CTetrisDlg::OnBnClickedButtonHelp()
 void CTetrisDlg::OnBnClickedButtonExit()
 {
 	if (MessageBoxA(nullptr, "确定退出？", "退出", MB_OKCANCEL) == IDOK)
-		exit(0);
+	{
+		SendMessage(WM_CLOSE);
+	}
 	// TODO: 在此添加控件通知处理程序代码
 }
-
 
 void CTetrisDlg::OnBnClickedButtonAchieve()
 {

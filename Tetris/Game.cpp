@@ -35,6 +35,8 @@ Game::Game(int pa, int di)
 
 Game::~Game()
 {
+	delete box;
+	delete nextBox;
 }
 
 int Game::DeleteLines()
@@ -216,7 +218,7 @@ BOOL Game::CanRoll()
 {
 	int cnt1 = 4, cnt2 = 0, x = box->Pos_x, y = box->Pos_y;
 	int tmp[20][9];
-	int *rollData = box->GetRollData();
+	//int *rollData = box->GetRollData();
 
 	// 复制一个副本，统计原有方块数+box中的块数
 	for (int i = 0; i < CANVAS_HEIGHT; i++)
@@ -234,7 +236,7 @@ BOOL Game::CanRoll()
 				i + y < CANVAS_HEIGHT  &&
 				j + x >= 0 &&
 				j + x < CANVAS_WIDTH   &&
-				rollData[i * 4 + j])
+				box->_data[i][j])
 				tmp[(i + y)][j + x] = 1;
 		}
 

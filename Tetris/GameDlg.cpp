@@ -136,6 +136,7 @@ void CGameDlg::ShowMain()//显示主窗口
 
 void CGameDlg::OnCancel()//直接按下右上关闭键时
 {
+	delete game;
 	ShowMain();
 	GetParent()->SendMessage(WM_CLOSE);
 	CDialogEx::OnCancel();
@@ -249,11 +250,11 @@ void CGameDlg::OnTimer(UINT_PTR nIDEvent)
 		}
 		else
 		{
+			delete game;
 			ShowMain();
 			GetParent()->SendMessage(WM_CLOSE);
 			CDialogEx::OnCancel();
 		}
-		
 	}
 	Invalidate(true);// 重绘画面
 }

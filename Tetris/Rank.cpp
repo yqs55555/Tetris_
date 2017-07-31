@@ -39,7 +39,7 @@ void Rank::textread()
 	readdata(filenamePtn2, scorePtn2); 
 }
 
-void Rank::textwrite(string str, int *score)
+void Rank::textwrite(const string str, int *score)
 {
 	fstream fs;
 	fs.open(str, ios_base::out);
@@ -90,7 +90,7 @@ BOOL Rank::caninsert(int * array, int n)
 		
 }
 
-void Rank::readdata(string filename, int* score)
+void Rank::readdata(const string filename, int* score)
 {
 	fstream file;
 	file.open(filename, ios::in);
@@ -115,23 +115,25 @@ void Rank::display(CRankDlg& cDlg)
 		test.Format(_T("%d"), scorePtn0[i]);
 		res = res + test + '\n';
 	}
-	SetDlgItemText(cDlg,IDC_STATIC_PATTERN0, res);
-	res = "";
+	SetDlgItemText(cDlg,IDC_STATIC_PATTERN0, res);//经典模式
+
+	res = "";//数据置零
 	for (int i = 0; i < 10; i++)
 	{
 		CString test;
 		test.Format(_T("%d"), scorePtn1[i]);
 		res = res + test + '\n';
 	}
-	SetDlgItemText(cDlg, IDC_STATIC_PATTERN1, res);
-	res = "";
+	SetDlgItemText(cDlg, IDC_STATIC_PATTERN1, res);//残局模式
+
+	res = "";//数据置零
 	for (int i = 0; i < 10; i++)
 	{
 		CString test;
 		test.Format(_T("%d"), scorePtn2[i]);
 		res = res + test + '\n';
 	}
-	SetDlgItemText(cDlg, IDC_STATIC_PATTERN2, res);
+	SetDlgItemText(cDlg, IDC_STATIC_PATTERN2, res);//随机变速模式
 }
 void Rank::clear()
 {
@@ -140,7 +142,7 @@ void Rank::clear()
 	clearrank("dataPtn2.txt");
 
 }
-void Rank::clearrank(string filename)
+void Rank::clearrank(const string filename)
 {
 	memset(scorePtn0, 0, sizeof(int) * 15);
 	memset(scorePtn1, 0, sizeof(int) * 15);

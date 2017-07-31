@@ -11,7 +11,7 @@ public:
 	~Rank();
 	void display(CRankDlg& rDlg);//打印
 	void clear();
-	void textwrite(string str, int *a);//写入数据文件
+	void textwrite(const string str, int *a);//写入数据文件
 	void BubbleSort(int  *p);//从大至小排列
 	void insert(int *a, int n);//插入分数
 	BOOL caninsert(int *array, int n);//判断是否插入
@@ -21,7 +21,7 @@ public:
 private:
 	void textread();//读取数据文件
 	void swap(int &a, int &b);//交换位置
-	void readdata(string filename,int* score);
-	void clearrank(string filename);
+	void readdata(const string filename,int* score);//score为int指针，存储数据
+	void clearrank(const string filename);
 };
 

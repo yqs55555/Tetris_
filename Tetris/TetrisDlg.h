@@ -15,6 +15,7 @@ public:
 // 构造
 public:
 	CTetrisDlg(CWnd* pParent = NULL);	// 标准构造函数
+	~CTetrisDlg();
 
 // 对话框数据
 #ifdef AFX_DESIGN_TIME

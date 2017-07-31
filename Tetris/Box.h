@@ -6,7 +6,7 @@ public:
 	Box(int type);
 	~Box();
 	int _data[4][4];
-	int * GetRollData();
+//	int * GetRollData();
 private:
 	void Make_1();//---
 	void Make_2();//[ ]
