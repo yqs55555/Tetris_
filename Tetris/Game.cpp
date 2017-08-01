@@ -71,7 +71,7 @@ BOOL Game::CanDeleteLine(int index)
 			count++;
 	return count == CANVAS_WIDTH;
 }
-int Game::GetDeathNum()
+int& Game::GetDeathNum()
 {
 	fstream file;
 	file.open("DeathNum.txt", ios::in);

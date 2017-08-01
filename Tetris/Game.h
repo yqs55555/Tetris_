@@ -35,7 +35,7 @@ public:
 	void MoveDown();
 	void MoveLeft();
 	void MoveRight();
-	void AddBox(int choose);
+	void AddBox(int choose);//
 	BOOL isRun = TRUE;
 	BOOL end;
 
@@ -43,6 +43,6 @@ private:
 	static const int RECT_SIZE = 30;
 	void DeleteLine(int index);
 	BOOL CanDeleteLine(int index);
-	int GetDeathNum();
+	int& GetDeathNum();
 };
 

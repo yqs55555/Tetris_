@@ -13,8 +13,8 @@ public:
 	void clear();
 	void textwrite(const string str, int *a);//写入数据文件
 	void BubbleSort(int  *p);//从大至小排列
-	void insert(int *a, int n);//插入分数
-	BOOL caninsert(int *array, int n);//判断是否插入
+	void insert(int *a,const int& n);//插入分数
+	BOOL caninsert(int *array,const int& n);//判断是否插入
 	int scorePtn0[15];//经典模式
 	int scorePtn1[15];//残局模式
 	int scorePtn2[15];//随机变速模式

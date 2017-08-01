@@ -71,13 +71,13 @@ void Rank::swap(int & a, int & b)
 	a = a - b;
 }
 
-void Rank::insert(int *score, int n)
+void Rank::insert(int *score,const int& n)
 {
 	score[10] = n;
 	BubbleSort(score);
 }
 
-BOOL Rank::caninsert(int * array, int n)
+BOOL Rank::caninsert(int * array,const int& n)
 {
 	for (int i = 0; i < 10; i++)
 	{
